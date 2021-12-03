@@ -1,4 +1,7 @@
-export const Main = () => {
+import React, {Component} from 'react';
+
+class Searchbar extends Component{
+  render(){
     return (
       <div className="flex flex-col items-center justify-center max-w-2xl px-4 pt-16 mx-auto sm:max-w-xl md:max-w-2xl lg:pt-32 md:px-8">
         <div className="max-w-xl mb-10 lx:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -19,4 +22,8 @@ export const Main = () => {
         </form>
       </div>
     );
-  };
+  }
+};
+
+export default Searchbar;
+
