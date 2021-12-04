@@ -2,36 +2,33 @@ import React, {Component} from 'react';
 import Searchbar from './components/Searchbar';
 import Header from './components/Header';
 import Recommendation from './components/Recommendation';
-import axios from 'axios';
+import Searchresult from './components/Searchresult'
+//import axios from 'axios';
 
 class App extends Component{
 
-/*     state = {details:[],}
+    constructor(props){
+        super(props);
+    
+        this.state={
+          search:null,
+        };
+      }
 
-    componentDidMount(){
-        let data;
-        axios.get("http://3.144.102.191:8000/recommend/founder1")
-        .then(res=>{
 
-            data = res.data;
-            this.setState({
-                details:data
-            });
-        })
-        .catch(err=>console.log("AXIOS ERR1"))
-    }
- */
     render(){
         return(
-            <div>
+            <div className="App">
                 <Header></Header>
-                <Searchbar></Searchbar>
-                <Recommendation></Recommendation>
-                {/* {this.state.details.map((output, id)=>(
-                    <div>
-                        <h2>{output.title}</h2>
-                    </div>
-                )   )} */}
+                <Searchbar onChange={function(_keyword){
+                    this.setState({
+                        search:_keyword
+                    })
+                    }.bind(this)}></Searchbar>
+                
+                {/* <Recommendation></Recommendation> */}
+                
+                <Searchresult search={this.state.search}></Searchresult>
             </div>
         )
     }

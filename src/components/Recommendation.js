@@ -26,27 +26,9 @@ class Recommendation extends Component{
       })
       .catch(err=>console.log("AXIOS ERR1"))
   }
-/* 
-  render(){
-    return(
-      <div>
-        {this.state.details.map((output, id)=>(
-          <div>
-            <h2>{output.title}</h2>
-           </div>
-        )   )}
-      </div>
-    )
-  }
-   */
 
   render(){
 
-     /*const recommended_itmes = axios.get("http://3.144.102.191:8000/recommendation/founder4").then((Response)=>{
-       console.log(Response.data);
-       (Response.data).map((data, id)=>{
-         .catch(err => console.log("ERR AXIOS")) */
-        
         const recommend_boxes = this.state.details.map((output, id)=>{
           return(
             <a href="/"
@@ -75,7 +57,6 @@ class Recommendation extends Component{
         })
  
         return (
-             
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
               <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
               </div>
@@ -85,9 +66,7 @@ class Recommendation extends Component{
 
               </div>
             </div>
-            
-            
-          );
+        );
     }
 };
 
