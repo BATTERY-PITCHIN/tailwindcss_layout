@@ -2,39 +2,37 @@ import React, {Component} from 'react';
 import axios from "axios";
 import { data } from 'autoprefixer';
 
-class Searchresult extends Component{
+class SearchresultFounder extends Component{
 
   constructor(props){
     super(props)
-      this.state = {
-        founders:[]
-      }
+
+    this.state={
+      details:[]
+    }
   }
 
-  copmenentDidMount(){
-    let founderdata;
-    axios.get("http://3.144.102.191:8000/founder/estimate")
-      .then(res=>{
-        founderdata=res.data;
-        this.setState({
-          founders:founderdata
-        });
-        console.log("keword in SR1 : "+this.props.search)
+  componentDidMount(){
+       let data;
+       axios.get("http://3.144.102.191:8000/founder/estimate/")
+       .then(res=>{
+          data = res.data;
+          this.setState({
+              details:data
+          });
+          console.log(data)
       })
-      .catch(err=>console.log("AXIOS ERR"))
+      .catch(err=>console.log("AXIOS ERR IN SEARCHRESULT FOUNDER"))
   }
 
   render(){
-
-    const result_boxes = this.state.founders.map((output, id)=>{
-      console.log("keword in SR : "+this.props.search)
+    const result_boxes = this.state.details.map((output, id)=>{
+      console.log("keyword in SEARCHRESULT in founder : "+this.props.search)
       if(this.props.search == null)
         return
-      else if(this.props.search == output.keyword)
-        return data
-    }).map(data=>{
-      return(
-        <div className="flex border-red-500  flex-col items-start py-4 transition duration-300 transform rounded sm:px-4 lg:flex-row sm:hover:translate-x-4 sm:hover:bg-blue-gray-50">
+      else if(this.props.search == output.keyword){
+        return(
+          <div className="flex border-red-500  flex-col items-start py-4 transition duration-300 transform rounded sm:px-4 lg:flex-row sm:hover:translate-x-4 sm:hover:bg-blue-gray-50">
                 <div className="mb-4 lg:mb-0">
                     <img
                         className="object-cover w-24 h-24 rounded-full shadow"
@@ -42,11 +40,11 @@ class Searchresult extends Component{
                         alt="Person"
                     />
                     <h5 className="mb-4 text-xl font-bold leading-none sm:text-2xl">
-                      {data.title}
+                      {output.title}
                     </h5>
                     <div className="relative pr-8">
                     <p className="text-base text-gray-700 md:text-lg">
-                        {data.item_name}
+                        {output.content}
                     </p>
                     </div>
                 </div>
@@ -67,7 +65,8 @@ class Searchresult extends Component{
                     </a>
                 </div>
             </div>
-      )
+        )
+      }
     })
 
     return(
@@ -81,4 +80,4 @@ class Searchresult extends Component{
 }
 
 
-export default Searchresult;
+export default SearchresultFounder;

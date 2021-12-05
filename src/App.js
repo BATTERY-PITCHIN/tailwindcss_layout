@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Searchbar from './components/Searchbar';
 import Header from './components/Header';
 import Recommendation from './components/Recommendation';
-import Searchresult from './components/Searchresult'
+import SearchresultFounder from './components/SearchresultFounder'
 import SearchResultFactory from './components/SearchResultFactory';
 //import axios from 'axios';
 
@@ -28,9 +28,10 @@ class App extends Component{
                     }.bind(this)}></Searchbar>
                 
                 {/* <Recommendation></Recommendation> */}
-                <SearchResultFactory search={this.state.search}>
-                </SearchResultFactory>
-                {/* <Searchresult search={this.state.search}></Searchresult> */}
+                {/* <SearchResultFactory search={this.state.search}>
+                </SearchResultFactory> */}
+                <SearchresultFounder search={this.state.search}>
+                </SearchresultFounder>
             </div>
         )
     }
