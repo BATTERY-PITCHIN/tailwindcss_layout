@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {BrowserRouter, Route, Switch, Link, NavLink, useParmas} from 'react-router-dom';
 
 class Searchbar extends Component{
 
@@ -6,7 +7,7 @@ class Searchbar extends Component{
     super(props);
 
     this.state = {
-      keyword:null
+      keyword:null,
     }
   }
 
@@ -24,19 +25,19 @@ class Searchbar extends Component{
               this.setState({
                 keyword:_keyword
               })
-              console.log("Target value :"+e.target.value)
-              console.log("_keyword :"+_keyword)
-              console.log("keyword(SET) :"+this.state.keyword)
             }.bind(this)}
           />
           <button onClick={(event)=>{
             this.props.onChange(this.state.keyword)
             console.log("TAG : "+this.state.keyword)
+
           }}
             type="submit"
             className="inline-flex items-center justify-center w-full h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-secondary hover:bg-deep-secondary focus:shadow-outline focus:outline-none"
           >
+            <NavLink exact to="/search">
             SEARCH
+            </NavLink>
           </button>
         </div>
       </div>
