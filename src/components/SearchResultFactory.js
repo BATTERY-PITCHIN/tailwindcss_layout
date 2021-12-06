@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import { data } from 'autoprefixer';
+import {BrowserRouter, Route, Switch, Link, NavLink, useParmas} from 'react-router-dom';
+
 
 class SearchResultFactory extends Component{
 
@@ -36,6 +37,7 @@ class SearchResultFactory extends Component{
             aria-label="View Item"
             className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
           >
+            <NavLink to ={"/factoryinfo/"+output.factoryowner_id}>
             <div className="flex flex-col h-full">
               <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                 className="object-cover w-full h-48"
@@ -52,6 +54,7 @@ class SearchResultFactory extends Component{
                 </div>
               </div>
             </div>
+          </NavLink>
           </a>
         )
       }

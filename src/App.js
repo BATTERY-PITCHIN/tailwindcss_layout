@@ -5,6 +5,7 @@ import Recommendation from './components/Recommendation';
 import SearchresultFounder from './components/SearchresultFounder'
 import SearchResultFactory from './components/SearchResultFactory';
 import FakeTab from './components/FakeTab';
+import Facinfo from './components/Facinfo';
 import {BrowserRouter, Route, Switch, Link, NavLink, useParmas} from 'react-router-dom';
 
 //import axios from 'axios';
@@ -19,7 +20,6 @@ class App extends Component{
           
         };
       }
-
 
     render(){
         return(
@@ -49,7 +49,9 @@ class App extends Component{
                                 <SearchresultFounder search={this.state.search}/>
                             </Route>
                         </div>
-                        
+                    </Route>
+                    <Route path="/factoryinfo/:factory_id">
+                        <Facinfo></Facinfo>
                     </Route>
                 </Switch>                
                 
@@ -63,6 +65,7 @@ class App extends Component{
                 </SearchResultFactory> */}
                 {/* <SearchresultFounder search={this.state.search}>
                 </SearchresultFounder> */}
+                {/* <Facinfo></Facinfo> */}
             </div>
         )
     }

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import logo from "../images/Logo1.png"
 import {BrowserRouter, Route, Switch, Link, NavLink, useParmas} from 'react-router-dom';
 
 class Searchbar extends Component{
@@ -13,7 +14,9 @@ class Searchbar extends Component{
 
   render(){
     return (
-      <div className="flex flex-col items-center justify-center max-w-2xl px-4 pt-16 mx-auto sm:max-w-xl md:max-w-2xl lg:pt-32 md:px-8">
+      <div className="object-cover h-48 w-full" style={{ backgroundImage:`url(${logo})`}}>
+      <div className="flex flex-col items-center justify-center max-w-full px-4 pt-16 mx-auto sm:max-w-xl md:max-w-2xl lg:pt-32 md:px-8"
+     >
         <div className="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
           <input
             placeholder="검색어를 적어주세요"
@@ -40,6 +43,7 @@ class Searchbar extends Component{
             </NavLink>
           </button>
         </div>
+      </div>
       </div>
     );
   }
