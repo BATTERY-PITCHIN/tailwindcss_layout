@@ -24,6 +24,16 @@ class Header extends Component{
           </h1>
           <div class="border-b-2 pb-4 relative flex items-center justify-end">
             <ul class="flex items-center hidden space-x-8 lg:flex">
+            <li>
+                <div
+                  href="/"
+                  aria-label="My page"
+                  title="My page"
+                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  사용자 : {this.props.user_id} 님
+                </div>
+              </li>
               <li>
                 <a
                   href="/"

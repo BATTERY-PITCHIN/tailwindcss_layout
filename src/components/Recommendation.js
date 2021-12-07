@@ -2,6 +2,7 @@ import { data } from "autoprefixer";
 import React, {Component} from "react";
 //import {FounderRecommendation} from "../api/api";
 import axios from "axios";
+import {NavLink} from "react-router-dom"
 
 
 class Recommendation extends Component{
@@ -39,6 +40,7 @@ class Recommendation extends Component{
               aria-label="View Item"
               className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
             >
+              <NavLink to ={"/factoryinfo/"+output.id}>
               <div className="flex flex-col h-full">
                 <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                   className="object-cover w-full h-48"
@@ -55,6 +57,7 @@ class Recommendation extends Component{
                   </div>
                 </div>
               </div>
+              </NavLink>
             </a>
           )
 
@@ -63,7 +66,7 @@ class Recommendation extends Component{
         return (
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
               <h1 className="text-3xl font-normal leading-normal mt-0 mb-2 text-pink-400">
-                [User Customized Recommends]
+                [사용자 맞춤화 추천 컨텐츠]
               </h1>
               <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
               </div>

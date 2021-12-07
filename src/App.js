@@ -21,7 +21,7 @@ class App extends Component{
     
         this.state={
           search:null,
-          user_id:"founder1"
+          user_id:"founder3"
         };
       }
 
