@@ -10,13 +10,17 @@ class Recommendation extends Component{
     super(props)
 
     this.state={
-      details:[]
+      details:[],
+      //user_id:nul
     }
   }
 
   componentDidMount(){
        let data;
-       axios.get("http://3.144.102.191:8000/recommend/founder1")
+       const user_id = this.props.user_id;
+       //console.log("USER ID IN RC : "+user_id)
+    
+       axios.get("http://3.144.102.191:8000/recommend/"+user_id)
        .then(res=>{
           data = res.data;
           this.setState({
@@ -24,7 +28,7 @@ class Recommendation extends Component{
           });
           console.log(data)
       })
-      .catch(err=>console.log("AXIOS ERR1"))
+      .catch(err=>console.log("AXIOS ERR2"))
   }
 
   render(){
@@ -58,7 +62,7 @@ class Recommendation extends Component{
  
         return (
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-              <h1 className="text-4xl font-normal leading-normal mt-0 mb-2 text-pink-400">
+              <h1 className="text-3xl font-normal leading-normal mt-0 mb-2 text-pink-400">
                 [User Customized Recommends]
               </h1>
               <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">

@@ -36,7 +36,8 @@ class App extends Component{
                             this.setState({
                                 search:_keyword
                             })}.bind(this)}/>
-                            <Recommendation/>
+                            <Recommendation user_id={this.state.user_id}>
+                            </Recommendation>
                         </div>
                     </Route>
                     <Route path="/search">

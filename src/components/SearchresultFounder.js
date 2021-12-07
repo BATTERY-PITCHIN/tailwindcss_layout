@@ -75,7 +75,7 @@ class SearchresultFounder extends Component{
     return(
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 border-light-blue-500">
           <h1 className="text-3xl font-normal leading-normal mt-0 mb-2 text-pink-400">
-            Searching Founder
+            Searching Founders..
           </h1>
           <div className="max-w-screen-lg sm:mx-auto ">
               {result_boxes}

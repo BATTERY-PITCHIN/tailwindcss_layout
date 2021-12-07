@@ -63,7 +63,7 @@ class SearchResultFactory extends Component{
     return (
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <h1 className="text-3xl font-normal leading-normal mt-0 mb-2 text-pink-400">
-          Searching Factory
+          Searching Factories..
         </h1>
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         </div>
