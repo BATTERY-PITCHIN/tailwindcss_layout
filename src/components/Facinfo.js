@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch, Link, NavLink, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class Facinfo extends Component{
     
@@ -30,16 +30,16 @@ class Facinfo extends Component{
             f_id:factory_id
         })
 
-        var url="http://3.144.102.191:8000/factoryinfo/"+String(factory_id)
-        axios.get(url)
+        //var url="http://3.144.102.191:8000/factory/information"
+        axios.get("http://3.144.102.191:8000/factory/information")
        .then(res=>{
           data = res.data;
           this.setState({
               details:data
           });
-          console.log(data)
+          console.log("TAG1:"+data)
       })
-      .catch(err=>console.log("AXIOS ERR IN Factory Details"+url))
+      .catch(err=>console.log("AXIOS ERR IN Factory Details "))
     }
 
     render(){
@@ -49,8 +49,8 @@ class Facinfo extends Component{
                 this.setState({
                     fac_info:output
                 })
-                console.log(this.state.fac_info.id)
-                console.log(this.state.fac_info.title)
+                console.log("TAG:"+this.state.fac_info.id)
+                console.log("TAG:"+this.state.fac_info.title)
                 return
             }
         })
