@@ -6,7 +6,11 @@ import SearchresultFounder from './components/SearchresultFounder'
 import SearchResultFactory from './components/SearchResultFactory';
 import FakeTab from './components/FakeTab';
 import Facinfo from './components/Facinfo';
-import {BrowserRouter, Route, Switch, Link, NavLink, useParmas} from 'react-router-dom';
+import Founderest from './components/Founderest';
+import Footer from './components/Footer';
+import Tab from './components/Tab';
+import MypageContent from './components/MypageContent';
+import {BrowserRouter, Route, Switch, Link, NavLink, withRouter} from 'react-router-dom';
 
 //import axios from 'axios';
 
@@ -17,14 +21,14 @@ class App extends Component{
     
         this.state={
           search:null,
-          
+          user_id:"founder1"
         };
       }
 
     render(){
         return(
             <div className="App">
-                <Header></Header>
+                <Header user_id={this.state.user_id}></Header>
                 <Switch>
                     <Route exact path="/">
                         <div className="main">
@@ -41,7 +45,7 @@ class App extends Component{
                                 this.setState({
                                     search:_keyword
                                 })}.bind(this)}/>
-                            <FakeTab/>
+                            <Tab/>
                             <Route path="/search/factoryinfo">
                                 <SearchResultFactory search={this.state.search}/>
                             </Route>
@@ -50,10 +54,18 @@ class App extends Component{
                             </Route>
                         </div>
                     </Route>
-                    <Route path="/factoryinfo/:factory_id">
+                    <Route path="/factoryinfo/:info_id">
                         <Facinfo></Facinfo>
                     </Route>
-                </Switch>                
+                    <Route path="/founderest/:est_id">
+                        <Founderest></Founderest>
+                    </Route>
+                    <Route path="/mypage/:user_id">
+                        <MypageContent/>
+                    </Route>
+                </Switch>
+                
+                <Footer></Footer>          
                 
                 {/* <Searchbar onChange={function(_keyword){
                     this.setState({

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { NavLink } from 'react-router-dom';
 //setIsMenuOpen
 
 class Header extends Component{
@@ -10,8 +11,17 @@ class Header extends Component{
       }
     }
     render(){
+
+      const user_id=this.props.user_id;
+      const url="/mypage/"+user_id;
+
       return (
         <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+          <h1 className="text-5xl text-center font-normal leading-normal mt-0 mb-2 text-pink-400 ">
+            <NavLink to="/">
+            PITCH IN
+            </NavLink>
+          </h1>
           <div class="border-b-2 pb-4 relative flex items-center justify-end">
             <ul class="flex items-center hidden space-x-8 lg:flex">
               <li>
@@ -21,7 +31,9 @@ class Header extends Component{
                   title="My page"
                   class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                 >
-                  My page 
+                  <NavLink to={url}>
+                  My page
+                  </NavLink>
                 </a>
               </li>
               <li>

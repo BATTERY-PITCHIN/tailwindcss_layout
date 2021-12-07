@@ -2,30 +2,27 @@ import axios from 'axios';
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 
-class Facinfo extends Component{
+class Founderest extends Component{
     
     constructor(props){
         super(props);
 
         this.state={
             details:[],
-                        
         }
       }
 
     componentDidMount(){
         let data;
-        var info_id=this.props.match.params.info_id;
-        console.log("INFO_ID : "+info_id)
+        var est_id=this.props.match.params.est_id;
+        console.log("EST_ID : "+est_id)
         
 
-        var url="http://3.144.102.191:8000/factory/information/"+info_id+"/"
-        console.log("FAC INFO URL : "+url)
+        var url="http://3.144.102.191:8000/founder/estimate/"+est_id+"/"
+        console.log("FOUNDER ESTIMATE URL : "+url)
         axios.get(url)
        .then(res=>{
           data = res.data;
-          console.log("FACINFO 1:"+data)
-
           this.setState({
               details:data
           });
@@ -34,10 +31,8 @@ class Facinfo extends Component{
     }
 
     render(){
-      const info_detail=this.state.details.map((output, id)=>{
-        console.log("F_TITLE : "+output.title)
-        console.log("F_CONTENT : "+output.content)
-        console.log("F_KEYWORD : "+output.keyword)
+      const est_detail=this.state.details.map((output, id)=>{
+      
         return(
           <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
               <div className="grid gap-5 row-gap-8 lg:grid-cols-2">
@@ -86,9 +81,9 @@ class Facinfo extends Component{
       })
 
       return (
-        <div>{info_detail}</div>
+        <div>{est_detail}</div>
         );
       }
 }
 
-export default withRouter(Facinfo);
+export default withRouter(Founderest);
